@@ -110,10 +110,10 @@ print(business_df_restaurants['categories'].head)
 
 #%%
 #convert to restaurant categories
-categories = mlb_restaurant.fit_transform(business_df_restaurants['categories'])
+categories_restaurant = mlb_restaurant.fit_transform(business_df_restaurants['categories'])
 #%%
 #convert categories to dataframe and then join it
-categories_restaurant_df = pd.DataFrame(categories, index = business_df_restaurants.index, columns = mlb_restaurant.classes_)
+categories_restaurant_df = pd.DataFrame(categories_restaurant, index = business_df_restaurants.index, columns = mlb_restaurant.classes_)
 business_df_restaurants = business_df_restaurants.drop('categories', axis = 1).join(categories_restaurant_df)
 categories_restaurant = mlb_restaurant.classes_
 print(categories_restaurant)
